@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.msa.auth.mapper.AuthMapper">
+    <insert id="join">
+        INSERT INTO public.app_user
+            (
+                row_id,
+                user_id,
+                user_nm,
+                "password",
+                salt,
+                email,
+                ip,
+                os,
+                browser,
+                join_dt
+            )
+        VALUES
+            (
+                nextval('app_user_row_id_seq'::regclass),
+                #{userId},
+                #{userNm},
+                #{password},
+                #{salt}, 
+                #{email},
+                #{ip}::INET,
+                #{os},
+                #{browser},
+                now()
+            )
+    </insert>
+    
+    <select id="getUser" resultType="egovMap">
+        SELECT * FROM app_user
+    </select>
+</mapper>

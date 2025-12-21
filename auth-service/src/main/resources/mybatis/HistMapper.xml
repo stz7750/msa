@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.msa.auth.mapper.HistMapper">
+    <insert id="logging" parameterType="egovMap" useGeneratedKeys="true" keyProperty="histId" keyColumn="hist_id">
+        INSERT INTO public.api_exec_history
+            (
+                hist_id,
+                exec_id,
+                "method",
+                url,
+                status,
+                regist_dt,
+                exec_start_dt,
+                exec_end_dt,
+                msg
+            )
+        VALUES
+            (
+                coalesce(#{histId}::bigint, nextval('api_exec_history_hist_id_seq'::regclass)),
+                #{execId},
+                #{method},
+                #{url},
+                coalesce(#{status}, 'RUNNING')::text,
+                now(),
+                #{execStartDt},
+                #{execEndDt},
+                #{msg}
+            )
+        ON CONFLICT (hist_id)
+        DO UPDATE
+        SET
+            status = excluded.status,
+            exec_end_dt = excluded.exec_end_dt,
+            msg = excluded.msg
+        RETURNING hist_id
+    </insert>
+</mapper>

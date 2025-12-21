@@ -1,0 +1,5 @@
+rootProject.name = 'msa'
+include 'discovery'
+include 'auth-service'
+include 'api'
+include 'tiger-dragon'

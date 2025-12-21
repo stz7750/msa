@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:postgresql://localhost:5432/msa
+    username: stz
+    password: stz191816!
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+mybatis:
+  mapper-locations: classpath:mybatis/**/*.xml
+  config-location: classpath:config.xml
+
+logging:
+  level:
+    jdbc.sqlonly: INFO
+    jdbc.sqltiming: INFO
+    jdbc.audit: WARN
+    jdbc.resultset: WARN
+    jdbc.resultsettable: INFO
+    jdbc.connection: WARN

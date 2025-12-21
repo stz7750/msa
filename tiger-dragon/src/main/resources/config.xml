@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <!--마이바티스 카멜케이스 설정-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="defaultExecutorType" value="SIMPLE" />
+        <!-- 마이바티스 Map 타입 null 값 처리 -->
+        <setting name="callSettersOnNulls" value="true"/>
+
+    </settings>
+    <typeAliases>
+        <typeAlias type="com.example.msa.common.util.EgovMap" alias="egovMap" />
+        <typeAlias alias="map" type="java.util.Map" />
+    </typeAliases>
+</configuration>
