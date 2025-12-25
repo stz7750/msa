@@ -50,7 +50,7 @@ dependencies {
     
     
     api 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    
+
     api 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     
     api 'commons-collections:commons-collections:3.2.2'

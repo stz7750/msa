@@ -25,6 +25,19 @@ CREATE TABLE IF NOT EXISTS public.board (
   updated_dt  TIMESTAMPTZ                     -- 수정일
 );
 
+CREATE TABLE IF NOT EXISTS public.user_connect (
+    user_id VARCHAR(100) NOT NULL,
+    url1 TEXT  NULL,
+    url2 TEXT NULL,
+    regist_id VARCHAR(100) NULL,
+    regist_dt date NULL,
+    updt_dt date NULL,
+    updt_id VARCHAR(100) NULL
+    CONSTRAINT user_connect_pk PRIMARY KEY (user_id)
+);
+
+
+
 
 
 

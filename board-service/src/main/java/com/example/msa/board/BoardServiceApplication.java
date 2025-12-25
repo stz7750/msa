@@ -1,0 +1,15 @@
+package com.example.msa.board;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@EnableEurekaClient
+@ComponentScan(basePackages = {"com.example.msa.board", "com.example.msa.common"})
+public class BoardServiceApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(BoardServiceApplication.class, args);
+    }
+}
